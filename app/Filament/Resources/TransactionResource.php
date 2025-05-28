@@ -84,7 +84,7 @@ class TransactionResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->button(),
@@ -93,7 +93,7 @@ class TransactionResource extends Resource
                     ->icon('heroicon-o-printer')
                     ->url(fn(Transaction $record) => route('transactions.print', $record))
                     ->openUrlInNewTab()
-                    ->button(), // <-- ini penting agar jadi tombol vertikal
+                    ->button(), 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

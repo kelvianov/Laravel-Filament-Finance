@@ -11,7 +11,7 @@ class ListTransactions extends ListRecords
 {
     protected static string $resource = TransactionResource::class;
 
-    // Buat method ini untuk emit event JS yang kita perlukan
+  
     public function printOptions(int $id)
     {
         $this->dispatchBrowserEvent('showPrintOptions', ['id' => $id]);
@@ -24,7 +24,6 @@ class ListTransactions extends ListRecords
         ];
     }
 
-    // Tambahkan ini supaya tombol Create muncul di header halaman list
     protected function getActions(): array
     {
         return [
@@ -33,8 +32,8 @@ class ListTransactions extends ListRecords
             Action::make('printAll')
                 ->label('Print All')
                 ->icon('heroicon-o-printer')
-                ->url(route('transactions.print.all')) // Ganti dengan route-mu
-                ->openUrlInNewTab(), // Buka di tab baru, opsional
+                ->url(route('transactions.print.all')) 
+                ->openUrlInNewTab(), 
         ];
     }
 }

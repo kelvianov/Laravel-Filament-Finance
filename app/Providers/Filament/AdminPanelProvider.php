@@ -66,16 +66,9 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            // ->topNavigation()
+            
             ->navigationItems([
-                // \Filament\Navigation\NavigationItem::make('GitHub')
-                //     ->url('https://github.com/kelvianov')
-                //     ->icon('heroicon-o-mark-github')
-                //     ->openUrlInNewTab(),
-                // \Filament\Navigation\NavigationItem::make('Instagram')
-                //     ->url('https://instagram.com/kelvianov')
-                //     ->icon('heroicon-o-camera')
-                //     ->openUrlInNewTab(),
+               
             ]);
     }
 }

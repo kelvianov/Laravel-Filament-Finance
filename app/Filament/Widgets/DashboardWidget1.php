@@ -11,14 +11,14 @@ class DashboardWidget1 extends ChartWidget
 
     protected function getData(): array
     {
-        // Ambil total amount dari transaksi yang kategorinya adalah expense, dikelompokkan per bulan
+      
         $expenses = Transaction::selectRaw('MONTH(date) as month, SUM(amount) as total')
             ->whereHas('category', fn($query) => $query->where('is_expense', true))
             ->groupByRaw('MONTH(date)')
             ->orderByRaw('MONTH(date)')
-            ->pluck('total', 'month'); // hasil: [1 => 12000, 3 => 30000, ...]
+            ->pluck('total', 'month');
 
-        // Susun data bulan Jan - Dec, jika tidak ada pengeluaran bulan itu, isi 0
+   
         $data = [];
         for ($i = 1; $i <= 12; $i++) {
             $data[] = $expenses[$i] ?? 0;
@@ -29,8 +29,8 @@ class DashboardWidget1 extends ChartWidget
                 [
                     'label' => 'Total Expenses',
                     'data' => $data,
-                    'backgroundColor' => 'rgba(255, 99, 132, 0.2)', // merah muda transparan
-                    'borderColor' => 'rgba(255, 99, 132, 1)',        // merah terang solid
+                    'backgroundColor' => 'rgba(255, 99, 132, 0.2)', 
+                    'borderColor' => 'rgba(255, 99, 132, 1)',        
                     'borderWidth' => 2,
                 ],
             ],
